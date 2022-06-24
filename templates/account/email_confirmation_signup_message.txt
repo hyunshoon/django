@@ -1,0 +1,5 @@
+hi {{ user }},
+Thank you for using our services
+
+{{ activate_url }}
+

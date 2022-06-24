@@ -29,6 +29,7 @@ def signup(request):
         signupForm = UserCreationForm(request.POST)
         if signupForm.is_valid():
             user = signupForm.save(commit=False)
+            #여기서 user.is_active = False로 하면 비활성유저로 만듦
             user.save()
             print('save')
         return redirect('/board/list')

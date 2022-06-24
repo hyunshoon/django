@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'accounts',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.kakao',
     'board',
     'reply',
 ]
@@ -132,8 +138,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+#STATIC은 장고에서 제공하는 기능이고 나머지는 변수다.
+MEDIA_URL = '/media/'#
+MEDIA_ROOT = BASE_DIR/ 'media'#static외에는 리스트 형태x
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.User' #accounts.User.groups 와 auth.User.groups 충돌을 막기 위함
